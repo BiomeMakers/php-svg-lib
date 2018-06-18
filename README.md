@@ -1,3 +1,10 @@
+# Biomemakers notes
+
+Javi: This is not needed anymore. This is a dependency used by phpdom, the pdf generator of Portal. This was just a fork of the original library to add a temporal patch to support php 7.2. But this problem has been fixed by the library creators.
+[Our issue](https://github.com/BiomeMakers/Portal/issues/27)
+
+
+
 # SVG file parsing / rendering library
 
 [![Build Status](https://travis-ci.org/PhenX/php-svg-lib.svg?branch=master)](https://travis-ci.org/PhenX/php-svg-lib)
