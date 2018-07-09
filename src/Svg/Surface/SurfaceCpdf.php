@@ -369,7 +369,7 @@ class SurfaceCpdf implements SurfaceInterface
         return $this->style;
     }
 
-    public function OriginalsetStyle(Style $style)
+    public function setStyle(Style $style)
     {
         if (self::DEBUG) echo __FUNCTION__ . "\n";
 
@@ -425,7 +425,7 @@ class SurfaceCpdf implements SurfaceInterface
         $this->setFont($style->fontFamily, $style->fontStyle, $style->fontWeight);
     }
 
-    public function setFont($family, $style, $weight)
+    public function OriginalsetFont($family, $style, $weight)
     {
         $map = array(
             "serif"      => "Times",
@@ -493,6 +493,7 @@ class SurfaceCpdf implements SurfaceInterface
 	public function setFont($family, $style, $weight){
 
 
+
         $family = strtolower($family);
         $style  = strtolower($style);
         $weight = strtolower($weight);
@@ -525,6 +526,8 @@ class SurfaceCpdf implements SurfaceInterface
 
 
         }
+
+		if($found_level > 0) return;
 
 
 	}

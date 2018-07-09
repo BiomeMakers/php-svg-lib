@@ -22,6 +22,6 @@
     "phpunit/phpunit": "~5.0"
   },
   "replace": {
-    "phenx/php-svg-lib":"0.*"
+    "phenx/php-svg-lib":"*"
   }
 }

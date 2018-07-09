@@ -37,3 +37,10 @@ git merge upstream/master
     }
 ]
 ```
+
+
+
+composer remove phenx/php-svg-lib
+composer update biomemakers/php-svg-lib
+
+
