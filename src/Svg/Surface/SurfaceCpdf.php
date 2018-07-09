@@ -369,7 +369,7 @@ class SurfaceCpdf implements SurfaceInterface
         return $this->style;
     }
 
-    public function setStyle(Style $style)
+    public function OriginalsetStyle(Style $style)
     {
         if (self::DEBUG) echo __FUNCTION__ . "\n";
 
@@ -483,4 +483,59 @@ class SurfaceCpdf implements SurfaceInterface
 
         $this->canvas->selectFont("$family.afm");
     }
+
+
+
+
+
+
+	
+	public function setFont($family, $style, $weight){
+
+
+        $family = strtolower($family);
+        $style  = strtolower($style);
+        $weight = strtolower($weight);
+
+        $found_level = 0;
+
+        foreach($this->canvas->fonts as $font => $data){
+
+          
+            $font_family = strtolower($data['FontName']);
+            $font_style  = $data['ItalicAngle'] != '0' ? 'italic' : 'normal';
+            $font_weight = strtolower($data['Weight']);
+            if($font_weight === 'medium') $font_weight = 'normal';
+
+
+            if($font_family === $family){
+
+                $my_level = 1;
+
+                if($font_style === $style) $my_level++;
+                if($font_weight === $weight) $my_level++;
+
+
+                if($my_level > $found_level){
+                    $found_level = $my_level;
+                    $this->canvas->selectFont($font);
+                }
+
+            }
+
+
+        }
+
+
+	}
+
+
+
+
+
+
+
+
+
+
 }
